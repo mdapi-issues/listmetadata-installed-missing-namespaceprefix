@@ -46,7 +46,7 @@ export default function addMissingNamespace(
           [directory, fixedCmpFullName].join('/') + '.' + extension;
         fileProperty.fullName = fixedCmpFullName;
       }
-      return fileProperty;
     }
+    return fileProperty;
   });
 }
