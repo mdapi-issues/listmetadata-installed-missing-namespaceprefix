@@ -12,16 +12,13 @@
 
 ## Steps to reproduce the issue
 
-Create a scratch org
+Clone this repository.
+
+Create a scratch org and install a dummy managed package
 
 ```console
-sfdx force:org:create -f config/project-scratch-def.json -s
-```
-
-install a dummy managed package containing a `Layout` on the CustomObject `Vehicle__c`
-
-```console
-sfdx force:package:install -p "04t4x000000UebsAAC" -w 10
+yarn
+yarn develop
 ```
 
 list e.g. Layouts using `listMetadata`
