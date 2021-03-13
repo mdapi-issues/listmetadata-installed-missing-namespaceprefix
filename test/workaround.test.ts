@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { promises } from 'fs';
 import * as path from 'path';
-import addMissingNamespace from '../src/workaround';
+import { addMissingNamespace } from '../src/workaround';
 import * as expected from './fixtures/expected.json';
 
 describe('workaround', function () {
