@@ -1,6 +1,6 @@
 import { Org } from '@salesforce/core';
 import { expect } from 'chai';
-import listBrokenMetadata from './issue';
+import { listBrokenMetadata } from './issue';
 
 describe('issue', function () {
   let fileProperties;

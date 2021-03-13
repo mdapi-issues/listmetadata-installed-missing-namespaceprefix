@@ -1,7 +1,7 @@
 import type { Connection, FileProperties } from 'jsforce';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default async function listBrokenMetadata(
+export async function listBrokenMetadata(
   conn: Connection
 ): Promise<Array<FileProperties>> {
   let fileProperties = await conn.metadata.list([

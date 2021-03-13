@@ -2,7 +2,7 @@ import type { FileProperties } from 'jsforce';
 
 const BROKEN_TYPES = ['CustomMetadata', 'Layout', 'QuickAction'];
 
-export default function addMissingNamespace(
+export function addMissingNamespace(
   fileProperties: Array<FileProperties>
 ): Array<FileProperties> {
   return fileProperties.map((fileProperty) => {
