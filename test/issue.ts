@@ -1,5 +1,5 @@
-import type { FileProperties } from "jsforce/api/metadata";
 import type { Connection } from "@salesforce/core";
+import type { FileProperties } from "jsforce/api/metadata";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function listBrokenMetadata(
