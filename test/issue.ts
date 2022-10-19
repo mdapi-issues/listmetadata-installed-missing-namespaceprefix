@@ -1,15 +1,16 @@
-import type { Connection, FileProperties } from 'jsforce';
+import type { FileProperties } from "jsforce/api/metadata";
+import type { Connection } from "@salesforce/core";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function listBrokenMetadata(
   conn: Connection
 ): Promise<Array<FileProperties>> {
   let fileProperties = await conn.metadata.list([
-    { type: 'CustomMetadata' },
+    { type: "CustomMetadata" },
     {
-      type: 'Layout'
+      type: "Layout",
     },
-    { type: 'QuickAction' }
+    { type: "QuickAction" },
   ]);
   if (!Array.isArray(fileProperties)) {
     fileProperties = [fileProperties];
