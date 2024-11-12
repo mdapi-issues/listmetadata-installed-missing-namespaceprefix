@@ -24,7 +24,7 @@ yarn develop
 list e.g. Layouts using `listMetadata`
 
 ```console
-sfdx force:mdapi:listmetadata -m Layout
+sf org list metadata -m Layout
 ```
 
 ```diff
