@@ -6,9 +6,9 @@
 
 **Affected metadata types**:
 
-- `CustomMetadata`
+- `CustomMetadata` (UPDATE: FIXED)
 - `Layout`
-- `QuickAction`
+- `QuickAction` (UPDATE: FIXED)
 
 ## Steps to reproduce the issue
 

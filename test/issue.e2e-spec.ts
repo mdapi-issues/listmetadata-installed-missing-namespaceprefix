@@ -1,8 +1,8 @@
-import { Org } from '@salesforce/core';
-import { expect } from 'chai';
-import { listBrokenMetadata } from './issue';
+import { Org } from "@salesforce/core";
+import { expect } from "chai";
+import { listBrokenMetadata } from "./issue";
 
-describe('issue', function () {
+describe("issue", function () {
   let fileProperties;
 
   before(async () => {
@@ -17,45 +17,45 @@ describe('issue', function () {
     };
   };
 
-  it('misses the namespace prefix for a managed CustomMetadata record', () => {
+  it("misses the namespace prefix for a managed CustomMetadata record", () => {
     const expected = fileProperties.find(
       findMetadata(
-        'CustomMetadata',
-        'mdapidummy2gen__Dummy_Configuration.mdapidummy2gen__Test'
+        "CustomMetadata",
+        "mdapidummy2gen__Dummy_Configuration.mdapidummy2gen__Test"
       )
     );
-    const actual = fileProperties.find(
-      findMetadata('CustomMetadata', 'mdapidummy2gen__Dummy_Configuration.Test')
+    const previouslyBroken = fileProperties.find(
+      findMetadata("CustomMetadata", "mdapidummy2gen__Dummy_Configuration.Test")
     );
-    expect(expected).to.be.undefined;
-    expect(actual).to.have.property('id');
+    expect(expected).to.have.property("id");
+    expect(previouslyBroken).to.be.undefined;
   });
 
-  it('misses the namespace prefix for a managed Layout on a managed CustomObject', () => {
+  it("managed Layout on a managed CustomObject now contains namespace prefix", () => {
     const expected = fileProperties.find(
       findMetadata(
-        'Layout',
-        'mdapidummy2gen__Vehicle__c-mdapidummy2gen__Vehicle Layout'
+        "Layout",
+        "mdapidummy2gen__Vehicle__c-mdapidummy2gen__Vehicle Layout"
       )
     );
     const actual = fileProperties.find(
-      findMetadata('Layout', 'mdapidummy2gen__Vehicle__c-Vehicle Layout')
+      findMetadata("Layout", "mdapidummy2gen__Vehicle__c-Vehicle Layout")
     );
     expect(expected).to.be.undefined;
-    expect(actual).to.have.property('id');
+    expect(actual).to.have.property("id");
   });
 
-  it('misses the namespace prefix for a managed QuickAction', () => {
+  it("managed QuickAction now contains namespace prefix", () => {
     const expected = fileProperties.find(
       findMetadata(
-        'QuickAction',
-        'mdapidummy2gen__Vehicle__c.mdapidummy2gen__Deprecate'
+        "QuickAction",
+        "mdapidummy2gen__Vehicle__c.mdapidummy2gen__Deprecate"
       )
     );
-    const actual = fileProperties.find(
-      findMetadata('QuickAction', 'mdapidummy2gen__Vehicle__c.Deprecate')
+    const previouslyBroken = fileProperties.find(
+      findMetadata("QuickAction", "mdapidummy2gen__Vehicle__c.Deprecate")
     );
-    expect(expected).to.be.undefined;
-    expect(actual).to.have.property('id');
+    expect(expected).to.have.property("id");
+    expect(previouslyBroken).to.be.undefined;
   });
 });
