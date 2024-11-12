@@ -6,9 +6,9 @@
 
 **Affected metadata types**:
 
-- `CustomMetadata`
+- `CustomMetadata` (UPDATE: FIXED)
 - `Layout`
-- `QuickAction`
+- `QuickAction` (UPDATE: FIXED)
 
 ## Steps to reproduce the issue
 
@@ -24,7 +24,7 @@ yarn develop
 list e.g. Layouts using `listMetadata`
 
 ```console
-sfdx force:mdapi:listmetadata -m Layout
+sf org list metadata -m Layout
 ```
 
 ```diff

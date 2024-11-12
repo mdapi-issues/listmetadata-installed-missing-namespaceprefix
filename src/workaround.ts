@@ -1,6 +1,6 @@
 import type { FileProperties } from "jsforce/api/metadata";
 
-const BROKEN_TYPES = ["CustomMetadata", "Layout", "QuickAction"];
+const BROKEN_TYPES = ["Layout"];
 
 export function addMissingNamespace(
   fileProperties: Array<FileProperties>
