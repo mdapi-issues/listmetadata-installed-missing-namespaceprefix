@@ -1,4 +1,4 @@
-import type { FileProperties } from "jsforce/api/metadata";
+import type { FileProperties } from "@jsforce/jsforce-node/lib/api/metadata.js";
 
 const BROKEN_TYPES = ["Layout"];
 
