@@ -1,21 +1,24 @@
 import { expect } from "chai";
-import { promises } from "fs";
-import * as path from "path";
-import { addMissingNamespace } from "../src/workaround";
+import { promises } from "node:fs";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { addMissingNamespace } from "../src/workaround.js";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 describe("workaround", function () {
   let expected;
   before(async () => {
     expected = JSON.parse(
       await promises.readFile(
-        path.join(__dirname, "fixtures", "expected.json"),
+        join(__dirname, "fixtures", "expected.json"),
         "utf8"
       )
     );
   });
   it("adds the missing namespace", async () => {
     const buf = await promises.readFile(
-      path.join(__dirname, "fixtures", "actual.json")
+      join(__dirname, "fixtures", "actual.json")
     );
     const actual = JSON.parse(buf.toString());
     const result = addMissingNamespace(actual);
@@ -23,7 +26,7 @@ describe("workaround", function () {
   });
   it("does not add namespace if already present", async () => {
     const buf = await promises.readFile(
-      path.join(__dirname, "fixtures", "expected.json")
+      join(__dirname, "fixtures", "expected.json")
     );
     const actual = JSON.parse(buf.toString());
     const result = addMissingNamespace(actual);

@@ -17,8 +17,8 @@ Clone this repository.
 Create a scratch org and install a dummy managed package
 
 ```console
-yarn
-yarn develop
+npm
+npm run develop
 ```
 
 list e.g. Layouts using `listMetadata`
